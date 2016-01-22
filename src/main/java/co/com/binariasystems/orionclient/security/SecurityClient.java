@@ -30,4 +30,6 @@ public interface SecurityClient {
 	public Call<List<RoleDTO>> findUserRoles(@Body AuthenticationDTO authentication);
 	@POST("security/roleresources")
 	public Call<List<ResourceDTO>> findRoleResources(@Body RoleDTO role);
+	@GET("security/userresources")
+	public Call<List<ResourceDTO>> findUserResources(@Query("user") Integer userId, @Query("application") Integer applicationId);
 }
