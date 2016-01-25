@@ -44,13 +44,14 @@ public class ClientMain {
 				System.out.println("User: "+accessToken.getUser());
 				System.out.println("CreationDate: "+accessToken.getCreationDate());
 			}
+			System.out.println("____________________________________________________________________________________________________");
+			Call<List<ResourceDTO>> resCaller = securityClient.findUserResources(accessToken);
+			List<ResourceDTO> resources = resCaller.execute().body();
+			for(ResourceDTO r : resources){
+				System.out.println("Resource: "+r.getResourcePath());
+			}
 		}
-		System.out.println("____________________________________________________________________________________________________");
-		Call<List<ResourceDTO>> resCaller = securityClient.findUserResources(4, 1);
-		List<ResourceDTO> resources = resCaller.execute().body();
-		for(ResourceDTO r : resources){
-			System.out.println("Resource: "+r.getResourcePath());
-		}
+		
 	}
 	public static void mainsas(String[] args) {
 		System.out.println(System.currentTimeMillis());

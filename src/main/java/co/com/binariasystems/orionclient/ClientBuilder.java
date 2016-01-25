@@ -1,6 +1,7 @@
 package co.com.binariasystems.orionclient;
 
 import java.lang.reflect.Type;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
@@ -14,6 +15,9 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParseException;
+import com.google.gson.JsonPrimitive;
+import com.google.gson.JsonSerializationContext;
+import com.google.gson.JsonSerializer;
 
 
 public class ClientBuilder {
@@ -45,7 +49,13 @@ public class ClientBuilder {
 		GsonBuilder gsonBuilder = new GsonBuilder();
 		gsonBuilder.registerTypeAdapter(Date.class, new JsonDeserializer<Date>(){
 			public Date deserialize(JsonElement json, Type typeOf, JsonDeserializationContext context) throws JsonParseException {
-				return new Date(json.getAsJsonPrimitive().getAsLong());
+				return json == null ? null : new Date(json.getAsJsonPrimitive().getAsLong());
+			}
+		});
+		
+		gsonBuilder.registerTypeAdapter(Date.class, new JsonSerializer<Date>() {
+			public JsonElement serialize(Date value, Type typeOf, JsonSerializationContext context) {
+				return value == null ? null : new JsonPrimitive(new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ").format(value));
 			}
 		});
 		

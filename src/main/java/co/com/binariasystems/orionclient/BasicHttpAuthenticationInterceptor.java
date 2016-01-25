@@ -10,7 +10,6 @@ import java.util.concurrent.ConcurrentMap;
 import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
-import co.com.binariasystems.fmw.util.StringUtils;
 import co.com.binariasystems.fmw.util.codec.Base64;
 import co.com.binariasystems.orion.model.enumerated.SecurityExceptionType;
 import co.com.binariasystems.orionclient.dto.ClientCredentialsDTO;
@@ -91,7 +90,7 @@ public class BasicHttpAuthenticationInterceptor implements Interceptor{
             		break;
             	}
             }
-            String zzzz = originalResponse.header(ORION_ACCESSTOKEN_HEADER);
+            
             if(originalResponse.header(ORION_ACCESSTOKEN_HEADER) != null){
             	inMemoryPreferences.put(ORION_ACCESSTOKEN_HEADER, originalResponse.header(ORION_ACCESSTOKEN_HEADER));
             }

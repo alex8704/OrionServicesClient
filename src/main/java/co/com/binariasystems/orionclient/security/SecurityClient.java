@@ -23,13 +23,13 @@ public interface SecurityClient {
 	@POST("security/saveauthentication")
 	public Call<AccessTokenDTO>saveAuthentication(@Body AuthenticationDTO authentication);
 	@POST("security/invalidatesession")
-	public Call<Void> invalidateUserSession(@Body AuthenticationDTO authentication);
+	public Call<Void> invalidateUserSession(@Body AccessTokenDTO accessTokenDTO);
 	@POST("security/accesstokenvalidity")
 	public Call<SN2Boolean> validateAccessTokenValidity(@Body AccessTokenDTO accessTokenDTO);
 	@POST("security/userroles")
-	public Call<List<RoleDTO>> findUserRoles(@Body AuthenticationDTO authentication);
+	public Call<List<RoleDTO>> findUserRoles(@Body AccessTokenDTO accessTokenDTO);
 	@POST("security/roleresources")
 	public Call<List<ResourceDTO>> findRoleResources(@Body RoleDTO role);
-	@GET("security/userresources")
-	public Call<List<ResourceDTO>> findUserResources(@Query("user") Integer userId, @Query("application") Integer applicationId);
+	@POST("security/userresources")
+	public Call<List<ResourceDTO>> findUserResources(@Body AccessTokenDTO accessTokenDTO);
 }
