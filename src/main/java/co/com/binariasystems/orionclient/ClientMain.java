@@ -5,11 +5,11 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Response;
+import co.com.binariasystems.commonsmodel.enumerated.Application;
 import co.com.binariasystems.orion.model.dto.AccessTokenDTO;
 import co.com.binariasystems.orion.model.dto.AuthenticationDTO;
 import co.com.binariasystems.orion.model.dto.ResourceDTO;
 import co.com.binariasystems.orion.model.dto.UserCredentialsDTO;
-import co.com.binariasystems.orion.model.enumerated.Application;
 import co.com.binariasystems.orionclient.dto.ClientCredentialsDTO;
 import co.com.binariasystems.orionclient.security.SecurityClient;
 

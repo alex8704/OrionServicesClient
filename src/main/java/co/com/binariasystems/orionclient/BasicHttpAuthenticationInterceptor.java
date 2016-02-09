@@ -55,14 +55,12 @@ public class BasicHttpAuthenticationInterceptor implements Interceptor{
 	
 	private void handleRequestCookies(Request.Builder requestBuilder){
 		Set<String> cookies = (Set<String>) inMemoryPreferences.get(PREFERENCE_KEY);
-		if(cookies == null){
-			requestBuilder.addHeader(FIRST_AUTHENTICATION_HEADER, Boolean.TRUE.toString());
+		if(cookies == null)
 			return;
-		}
-		for (String cookie : cookies) {
+		for (String cookie : cookies) 
 			requestBuilder.addHeader("Cookie", cookie);
-        }
-		requestBuilder.addHeader(ORION_ACCESSTOKEN_HEADER, (String)inMemoryPreferences.get(ORION_ACCESSTOKEN_HEADER));
+		if(inMemoryPreferences.get(ORION_ACCESSTOKEN_HEADER) != null)
+			requestBuilder.addHeader(ORION_ACCESSTOKEN_HEADER, (String)inMemoryPreferences.get(ORION_ACCESSTOKEN_HEADER));
 	}
 	
 	/**

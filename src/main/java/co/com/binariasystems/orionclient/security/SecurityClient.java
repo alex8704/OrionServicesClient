@@ -7,13 +7,13 @@ import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
+import co.com.binariasystems.commonsmodel.enumerated.SN2Boolean;
 import co.com.binariasystems.orion.model.dto.AccessTokenDTO;
 import co.com.binariasystems.orion.model.dto.AuthenticationDTO;
 import co.com.binariasystems.orion.model.dto.ResourceDTO;
 import co.com.binariasystems.orion.model.dto.RoleDTO;
 import co.com.binariasystems.orion.model.dto.UserCredentialsDTO;
 import co.com.binariasystems.orion.model.dto.UserDTO;
-import co.com.binariasystems.orion.model.enumerated.SN2Boolean;
 
 public interface SecurityClient {
 	@GET("security/userbyloginalias")
