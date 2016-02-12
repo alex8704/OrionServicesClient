@@ -19,7 +19,6 @@ public class BasicHttpAuthenticationInterceptor implements Interceptor{
 	private ClientCredentialsProvider credentialsProvider;
 	public static final String ORION_ERROR_MSG_HEADER_NAME = "orion-service-errormsg";
 	public static final String ORION_ERROR_TYPE_HEADER_NAME = "orion-service-errortype";
-	private final static String FIRST_AUTHENTICATION_HEADER = "orion-serv-first-auhtc";
 	private final static String ORION_ACCESSTOKEN_HEADER = "orionsec-access-token";
 	private String authSchema = "Basic";
 	private static final String PREFERENCE_KEY = "OrionSecurityWeb.AuthCookies";
